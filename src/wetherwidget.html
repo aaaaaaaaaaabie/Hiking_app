@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search page</title>
+    <link rel="stylesheet" href="stel.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
+
+</head>
+<body>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+	<nav>
+        <div class="logo" style="display: flex;align-items: center;">
+          <div class="top" style="font-style: italic;font-variant: small-caps;font-weight: bold;margin-left: 1150px; display: flex; ">
+            <p><a href="index.html" style="width: 50%;text-decoration: none;color: white;padding: 14px 16px;">home</a></p>
+            <p><a href="wetherwidget.html" style="width: 50%;text-decoration: none;color: white;padding: 14px 16px;">weather</a></p>
+            <p><a href="comment.html" style="width: 50%;text-decoration: none;color: white;padding: 14px 16px;">review</a></p>
+          </div>
+        </div>
+        
+      
+      </nav>
+<div class="Search" >
+
+	<div id="search" style="padding-top: 110px;">
+		<svg viewBox="0 0 420 60" xmlns="http://www.w3.org/2000/svg">
+			<rect class="bar"/>
+			
+			<g class="magnifier">
+				<circle class="glass"/>
+				<line class="handle" x1="32" y1="32" x2="44" y2="44"></line>
+			</g>
+	
+		</svg>
+		<input id="searchData" type=search name=q aria-label="Search for inspiration"/>
+	</div>
+	
+	<div id="results">
+		
+	</div>
+
+</div>
+
+
+<div class="frame">
+  <div class="moon">
+
+    <h3> <p id="city" style="font-size: 30px;;"></p> <br><small> <p id="country"></p> </small></h3>
+    <h3> <p id="desc"></p> </h3>
+  </div>
+  <div class="moon2">
+    <span id="tempC" style="font-size: larger;"> </span>
+    <br>
+    <small> <span id="tempMin"></span> / <span id="tempMax"></span> </small>
+  </div>
+  
+  <div class="front">
+		<div>
+			
+			<div class="icons">
+				<i class="fas fa-wind"></i><br/><i class="fas fa-tint"></i>
+			</div>
+			<div>
+				<div class="info">
+					 ..<span id="wind"></span><br> .<span id="humid"></span>
+				</div>
+				<table class="preview">
+					<tbody>
+						<tr>
+							<td><i class="wi wi-day-sunny"></i></td>
+							<td id="sunrise"></td>
+						</tr>
+						<tr>
+							<td><i class="fas fa-sun"></i></td>
+							<td id="sunset"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="proverb">
+			Long : <span id="long"></span>  Lat : <span id="lat"></span><br/>
+            <i class="fas fa-map-marked" id="maps"></i> 
+        </div>
+	</div>
+
+  <div id="condition" style="font-size: 15px;text-align: center;"></div>
+
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="footer" style="background-color: black;">
+
+  <div class="container2">
+
+      <div class="cta-form">
+          <h2 style="color: white;">Feel free to comment!</h2> 
+      <p style="color: white;">All of your comment and review really meaningfull for you</p>
+      </div>
+
+
+      <form class="form">
+
+      
+          
+          <input id="fileName" class="form__input"></input>
+          <label class="form__label" style="color: white;">name : </label>
+      
+          
+          <input id="fileContents" class="form__input"></input>
+          <label class="form__label" style="color: white;">Comment : </label>
+      
+
+      <button id="btnCreate" class="btn btn-default" style="margin-left: 85%;">Send</button>
+
+      </form>
+  </div>
+
+
+
+
+
+</div>
+
+
+</body>
+
+<script>
+  
+    document.addEventListener('DOMContentLoaded', function () {
+    const inputElement = document.getElementById('searchData');
+
+    inputElement.addEventListener('keydown', function (event) {
+    // Check if the pressed key is Enter (key code 13)
+        if (event.key === 'Enter') {
+            buttonClicked();
+        }
+    });
+});
+    function buttonClicked(){
+      var city = document.getElementById("searchData").value;
+      fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9fd7a449d055dba26a982a3220f32aa2`)
+        .then(response => response.json())
+        .then(data => {
+          console.log(data);
+          country2 = data; // Assign data to country2
+
+          
+          document.getElementById("desc").innerHTML = country2.weather[0].description;
+  
+          document.getElementById("tempC").innerHTML = parseInt(country2.main.temp - 273.15) + "°C";
+          document.getElementById("tempMin").innerHTML = parseInt(country2.main.temp_min - 273.15) ;
+          document.getElementById("tempMax").innerHTML = parseInt(country2.main.temp_max - 273.15) ;
+  
+          document.getElementById("humid").innerHTML =  country2.main.humidity + "%";
+          document.getElementById("wind").innerHTML =  country2.wind.speed + " km/h";
+  
+          document.getElementById("sunrise").innerHTML =  new Date(country2.sys.sunrise * 1000).toLocaleTimeString();
+          document.getElementById("sunset").innerHTML =  new Date(country2.sys.sunset * 1000).toLocaleTimeString();
+
+
+          var countrycode =  country2.sys.country;
+          fetch(`https://restcountries.com/v3.1/all`)
+            .then(response => response.json())
+            .then(data => {
+              console.log(data);
+              var country1 = data.find(c => c.cca2 === countrycode);
+              if (country1) {
+                document.getElementById("city").innerHTML =  country2.name ;
+                document.getElementById("country").innerHTML = country1.name.common ;
+                document.getElementById("long").innerHTML = country2.coord.lon;
+                document.getElementById("lat").innerHTML = country2.coord.lon;
+                let latHtml = `<a href="${country1.maps.googleMaps}" style="text-decoration:none;color:white;font-family: 'overlock', Helvetica, sans-serif;"><strong>  View on maps</strong></a>`
+                document.getElementById("maps").innerHTML = latHtml;
+                
+                if((country2.weather[0].main) !='Rain' && (country2.weather[0].main) != 'Snow'){ 
+                            document.getElementById('condition').innerHTML=`It is safe to do hiking activity at this place` 
+                            document.getElementById('condition').style.color='#99ff99' 
+                        } 
+                        else{ 
+                            document.getElementById('condition').innerHTML=`It is not safe to do hiking activity at this place` 
+                            document.getElementById('condition').style.color='#ff9999' 
+                        }
+              } else {
+                alert("Country not found");
+              }
+
+
+           
+            }) 
+        })
+          
+    }
+
+    const { app, BrowserWindow } = require('electron');
+    const fs = require('fs');
+    const path = require('path');
+
+    var btnCreate = document.getElementById('btnCreate');
+    var btnDelete = document.getElementById('btnDelete');
+    var fileName = document.getElementById('fileName');
+    var fileContents = document.getElementById('fileContents');
+    var commentSection = document.getElementById('commentSection');
+
+    let pathName = path.join(__dirname, 'Files');
+
+    btnCreate.addEventListener('click', function() {
+      let file = path.join(pathName, fileName.value);
+      let contents = fileContents.value;
+      fs.writeFile(file, contents, function(err) {
+        if (err) {
+          return console.log(err);
+        }
+        var txtfile = document.getElementById('fileName').value;
+        alert(' Comment has been sent!');
+        console.log('The file was created');
+        displayAllComments();
+      });
+    });
+
+  </script>
+</html>
+
+
+
+						  

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First page</title>
+    <link rel="stylesheet" href="index.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <nav>
+        <div class="logo" style="display: flex;align-items: center;">
+          <div class="top" style="font-style: italic;font-variant: small-caps;font-weight: bold;margin-left: 1150px; display: flex; ">
+            <p><a href="index.html" style="width: 50%;text-decoration: none;color: white;padding: 14px 16px;">home</a></p>
+            <p><a href="wetherwidget.html" style="width: 50%;text-decoration: none;color: white;padding: 14px 16px;">weather</a></p>
+            <p><a href="comment.html" style="width: 50%;text-decoration: none;color: white;padding: 14px 16px;">review</a></p>
+          </div>
+        </div>
+        
+      
+      </nav>
+
+
+    <div class="main">
+        <img src="main.png" style="width: 100%; margin-top: 1px;">
+        <div class="intro" style="font-size: 25px;text-align: center;margin: 40px;">
+            <p>Hiking is about more than traveling. It is more than seeing beautiful scenery or getting from A to B. It is more than exercise or putting one foot in front of the other for hours or days. Hiking is all of that! It creates a special state of mind and a special sense of connection with a place and with the entire world.</p>
+
+        </div>
+        <div class="w3-panel w3-leftbar w3-sand" style="text-align: center;">
+            <p class="w3-xxlarge w3-serif"><i>"Only those who risk going too far can possibly find out how far they can go."</i></p>
+            <p>- T.S. Eliot</p>
+        </div>
+        
+        <div class="main-container"> 
+
+            <div class="row-1">
+                <div class="col-1" style="padding: 35px;">
+                    <img src="hike1.png" style="width: 730px; height: 500px;">
+                    
+                </div>
+                <div class="col-2">
+                    <p style="font-size: larger; font-weight: bolder;">1. The Great Ocean Walk, Australia</p>
+                    <p style="font-size: 20px; text-align: justify;"><b>The trek:</b> Located 124 miles southwest of Melbourne, where the Australian coast meets the wild Southern Ocean, The Great Ocean Walk obliges hikers with plenty of only-in-Australia sights and ranks as the continent’s most superlative coastal foot path. Beginning at Apollo Bay, the 68-mile walk shadows the iconic Great Ocean Road, passes through Great Otway and Port Campbell national parks and concludes with an encore at the world-famous limestone stacks known as The Twelve Apostles.</p>
+                </div>
+            </div>
+            <div class="row-1">
+                <div class="col-1">
+                   <p style="font-size: 20px; text-align: justify;"><b>The sights:</b> Along the route, hikers will undoubtedly encounter koalas resting in eucalyptus treetops, wallabies scampering along the headlands, creek and river crossings, tall forests and deserted beaches with panoramic views from windswept headlands.</p>
+                   <p style="font-size: 20px; text-align: justify;"><b>When to go:</b> The Austral spring, autumn and summer are the preferred times to explore the trail. But the June-through-September winter season also has its incentives in the form of cool temperatures, wet, lush rain forests and being the best time to spot migrating humpback and southern right whales passing just offshore.</p>
+                </div>
+
+                <div class="col-2"  >
+                    
+                                        
+                    <div class="frame1" style="    right: 75px;
+                    bottom: -102%;">
+                        <div class="moon1-1">
+                    
+                          <h3> <p id="city1" style="font-size: 30px;;"></p> <br><small> <p id="country1"></p> </small></h3>
+                          <h3> <p id="desc1"></p> </h3>
+
+                        </div>
+                        <div class="moon1-2">
+
+                          <span id="tempC1" style="font-size: larger;"> </span>
+                          <br>
+                          <small> <span id="tempMin1"></span> / <span id="tempMax1"></span> </small>
+
+                        </div>
+                        
+                        <div class="front1">
+                            <div>
+                                
+                                <div class="icons1">
+                                    <i class="fas fa-wind"></i><br/><i class="fas fa-tint"></i>
+                                </div>
+                                <div>
+                                    <div class="info1">
+                                      ..<span id="wind1"></span><br> .<span id="humid1"></span>
+                                    </div>
+                                    <table class="preview1">
+                                        <tbody>
+                                            <tr>
+                                                <td><i class="fas fa-sun"></i></td>
+                                                <td id="sunrise1"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="wi wi-day-sunny"></i></td>
+                                                <td id="sunset1"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="proverb1">
+                                Long : <span id="long1"></span>  Lat : <span id="lat1"></span><br/>
+                                <i class="fas fa-map-marked" id="maps1"></i> 
+                            </div>
+                        </div>
+                        <div id="condition1" style="font-size: 15px;text-align: center;"></div>
+                    </div>
+  
+  
+
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row-1">
+                <div class="col-1" style="padding: 35px;">
+                    <img src="hike2.png" style="width: 730px; height: 500px;">
+                    
+                </div>
+                <div class="col-2">
+                    <p style="font-size: larger; font-weight: bolder;">2.  Kungsleden, Sweden</p>
+                    <p style="font-size: 20px; text-align: justify;"><b>The trek:</b> Spanning 270 miles in Sweden’s far north Lapland province, The King's Trail is superlative for its remote edge-of-the-world vibe, its 24/7 midsummer daylight that reboots your Circadian rhythm, and the August/September aurora borealis that lights up the sky. Hiking the entire trail takes about a month, but because it is broken into sections, you can choose the length of your hike; the most popular section (between Abisko and Nikkaluokta) covers 65 miles and takes between 10 to 12 days.</p>
+                </div>
+            </div>
+            <div class="row-1">
+                <div class="col-1">
+                   <p style="font-size: 20px; text-align: justify;"><b>The sights:</b> The trail is considered one of the world’s most famous hikes, coursing through a vast Arctic landscape home to birch forests filled with flowers, dramatic mountain passes with lunar-like terrain, lush grass meadows and broad glacial valleys.</p>
+                   <p style="font-size: 20px; text-align: justify;"><b>When to go:</b> Although the walking is relatively easy during the optimum June-September hiking season, the water here is profuse. The well-marked trail has plank walkways and bridges that cross swampy bogs and non-fordable summer streams, though some areas offer rowboat crossings or local charter boats that operate in lakes. </p>
+                </div>
+
+                <div class="col-22" >
+                    
+                                        
+                    <div class="frame2"  style="right: 75px;
+                    bottom: -1740px;">
+                        <div class="moon2-1">
+                    
+                          <h3> <p id="city2" style="font-size: 30px;;"></p> <br><small> <p id="country2"></p> </small></h3>
+                          <h3> <p id="desc2"></p> </h3>
+
+                        </div>
+                        <div class="moon2-2">
+
+                        <span id="tempC2" style="font-size: larger;"> </span>
+                          <br>
+                          <small> <span id="tempMin2"></span> / <span id="tempMax2"></span> </small>
+
+                        </div>
+                        
+                        <div class="front2">
+                            <div>
+                                
+                                <div class="icons2">
+                                    <i class="fas fa-wind"></i><br/><i class="fas fa-tint"></i>
+                                </div>
+                                <div>
+                                    <div class="info2">
+                                      ..<span id="wind2"></span><br> .<span id="humid2"></span>
+                                    </div>
+                                    <table class="preview2">
+                                        <tbody>
+                                            <tr>
+                                                <td><i class="fas fa-sun"></i></td>
+                                                <td id="sunrise2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="wi wi-day-sunny"></i></td>
+                                                <td id="sunset2"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="proverb2">
+                                Long : <span id="long2"></span>  Lat : <span id="lat2"></span><br/>
+                                <i class="fas fa-map-marked" id="maps2"></i> 
+                            </div>
+                        </div>
+                        <div id="condition2" style="font-size: 15px;text-align: center;"></div>
+                    </div>
+  
+  
+
+                </div>
+            </div>
+
+            <div class="row-1">
+                <div class="col-1" style="padding: 35px;">
+                    <img src="hike3.png" style="width: 730px; height: 500px;">
+                    
+                </div>
+                <div class="col-2">
+                    <p style="font-size: larger; font-weight: bolder;">3. Wales Coast Path, UK</p>
+                    <p style="font-size: 20px; text-align: justify;"><b>The trek:</b>  The Wales Coast Path is one of the globe’s premier walking routes, an 870-mile footpath distinguished as the first and only path to follow a country’s entire coastline. While the Herculean effort of walking its entirety has seen a few rugged takers, most walk parts of the best sections: the chiselled headlands of the 19-mile Gower Coast and the 186-mile Pembrokeshire Coast paths in South Wales.</p>
+                </div>
+            </div>
+            <div class="row-1">
+                <div class="col-1">
+                   <p style="font-size: 20px; text-align: justify;"><b>The sights:</b> There are castles – tons of castles. Wales claims the densest concentration (600!) of medieval fortresses in the United Kingdom. Their legacy is a bone of contention in Wales (many of them represent the beginning of the occupation), but their aesthetic qualities are undeniable.</p>
+                   <p style="font-size: 20px; text-align: justify;"><b>When to go:</b>During the main season from May through September, the sublime landscape is a visual feast of quilted pasturelands grazed by wild Welsh ponies, rocky Neolithic burial sites protruding from wind-scoured hillsides, and the seals, whales, dolphins, puffins and seabirds that can be seen at almost any given time.</p>
+                </div>
+
+                <div class="col-2"  >
+                    
+                                        
+                    <div class="frame3" style="    right: 75px;
+                    bottom: -315%;">
+                        <div class="moon3-1">
+                    
+                          <h3> <p id="city3" style="font-size: 30px;;"></p> <br><small> <p id="country3"></p> </small></h3>
+                          <h3> <p id="desc3"></p> </h3>
+
+                        </div>
+                        <div class="moon3-2">
+                          
+                          <span id="tempC3" style="font-size: larger;"> </span>
+                          <br>
+                          <small> <span id="tempMin3"></span> / <span id="tempMax3"></span> </small>
+
+                        </div>
+                        
+                        <div class="front3">
+                            <div>
+                                
+                                <div class="icons3">
+                                    <i class="fas fa-wind"></i><br/><i class="fas fa-tint"></i>
+                                </div>
+                                <div>
+                                    <div class="info3">
+                                      ..<span id="wind3"></span><br> .<span id="humid3"></span>
+                                    </div>
+                                    <table class="preview3">
+                                        <tbody>
+                                            <tr>
+                                                <td><i class="fas fa-sun"></i></td>
+                                                <td id="sunrise3"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="wi wi-day-sunny"></i></td>
+                                                <td id="sunset3"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="proverb3">
+                                Long : <span id="long3"></span>  Lat : <span id="lat3"></span><br/>
+                                <i class="fas fa-map-marked" id="maps3"></i> 
+                            </div>
+                        </div>
+                        <div id="condition3" style="font-size: 15px;text-align: center;"></div>
+                    </div>
+  
+  
+
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row-1">
+                <div class="col-1" style="padding: 35px;">
+                    <img src="hike4.png" style="width: 730px; height: 500px;">
+                    
+                </div>
+                <div class="col-2">
+                    <p style="font-size: larger; font-weight: bolder;">4.The Jordan Trail, Jordan</p>
+                    <p style="font-size: 20px; text-align: justify;"><b>The trek:</b>  Formally established in 2015, The Jordan Trail is the Middle Eastern country’s first and only long-distance hiking trail, traversing the length of Jordan from Um Qais in the north to Aqaba in the south. The alluring desert landscape, Biblical history, ancient ruins and Bedouin camps extol a sense of timeless antiquity that captivated T.E. Lawrence (of Lawrence of Arabia fame) in his 1926 book Seven Pillars of Wisdom.</p>
+                </div>
+            </div>
+            <div class="row-1">
+                <div class="col-1">
+                   <p style="font-size: 20px; text-align: justify;"><b>The sights:</b> Despite first-glance appearances, hikers are pleasantly surprised that the trail is not an endless desert. Throughout the trek, expect a diverse landscape that includes the rolling wooded hills of the north, the jagged cliffs rising above the Jordan Rift Valley, the mystic experience of the 'Lost City of Petra,' the dramatic desert sands and soaring mountains in Wadi Rum, and finally, the cool azure waters of the Red Sea at trip’s end.</p>
+                   <p style="font-size: 20px; text-align: justify;"><b>When to go:</b>The best times to embark on the hike are March, April, October and November. </p>
+                </div>
+
+                <div class="col-22" >
+                    
+                                        
+                    <div class="frame4"  style="right: 75px;
+                    bottom: -3470px;">
+                        <div class="moon4-1">
+                    
+                          <h3> <p id="city4" style="font-size: 30px;;"></p> <br><small> <p id="country4"></p> </small></h3>
+                          <h3> <p id="desc4"></p> </h3>
+
+                        </div>
+                        <div class="moon4-2">
+
+                          <span id="tempC4" style="font-size: larger;"> </span>
+                          <br>
+                          <small> <span id="tempMin4"></span> / <span id="tempMax4"></span> </small>
+
+                        </div>
+                        
+                        <div class="front4">
+                            <div>
+                                
+                                <div class="icons4">
+                                    <i class="fas fa-wind"></i><br/><i class="fas fa-tint"></i>
+                                </div>
+                                <div>
+                                    <div class="info4">
+                                      ..<span id="wind4"></span><br> .<span id="humid4"></span>
+                                    </div>
+                                    <table class="preview4">
+                                        <tbody>
+                                            <tr>
+                                                <td><i class="fas fa-sun"></i></td>
+                                                <td id="sunrise4"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="wi wi-day-sunny"></i></td>
+                                                <td id="sunset4"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="proverb4">
+                                Long : <span id="long4"></span>  Lat : <span id="lat4"></span><br/>
+                                <i class="fas fa-map-marked" id="maps4"></i> 
+                            </div>
+                        </div>
+                        <div id="condition4" style="font-size: 15px;text-align: center;"></div>
+                    </div>
+  
+  
+
+                </div>
+            </div>
+
+            <div class="row-1">
+                <div class="col-1" style="padding: 35px;">
+                    <img src="hike5.png" style="width: 730px; height: 500px;">
+                    
+                </div>
+                <div class="col-2">
+                    <p style="font-size: larger; font-weight: bolder;">5. Gotemba Trail, Japan</p>
+                    <p style="font-size: 20px; text-align: justify;"><b>The trek:</b> Japan’s Mt. Fuji is one of the most popular mountain icons in the world, with its distinctive, graceful conical symmetry (technically a stratovolcano) forged over millions of years by violent eruptions that have left a scorching sea of volcanic ash and rock along its slopes. The mountain (the highest in Japan at 12,380 feet) is synonymous with the country’s physical, cultural and spiritual identity. Understandably, climbing Mt. Fuji is on gazillions of travellers’ bucket lists.  </p>
+                </div>
+            </div>
+            <div class="row-1">
+                <div class="col-1">
+                   <p style="font-size: 20px; text-align: justify;"><b>The sights:</b> Despite being loved by the masses, Fuji still ranks as one of the world’s most desired hikes – an admirable goal for hikers wanting to experience the summit’s see-forever views and the resulting sense of achievement alongside scores of others who chant at daybreak. </p>
+                   <p style="font-size: 20px; text-align: justify;"><b>When to go:</b> Nearly all climbs are attempted from early July to mid-September when the weather is mild and the mountain is free of snow.</p>
+                </div>
+
+                <div class="col-22" >
+                    
+                                        
+                    <div class="frame5"  style="right: 75px;
+                    bottom: -4315px;">
+                        <div class="moon5-1">
+                    
+                          <h3> <p id="city5" style="font-size: 30px;;"></p> <br><small> <p id="country5"></p> </small></h3>
+                          <h3> <p id="desc5"></p> </h3>
+
+                        </div>
+                        <div class="moon5-2">
+
+                          <span id="tempC5" style="font-size: larger;"> </span>
+                          <br>
+                          <small> <span id="tempMin5"></span> / <span id="tempMax5"></span> </small>
+
+                        </div>
+                        
+                        <div class="front5">
+                            <div>
+                                
+                                <div class="icons5">
+                                    <i class="fas fa-wind"></i><br/><i class="fas fa-tint"></i>
+                                </div>
+                                <div>
+                                    <div class="info5">
+                                      ..<span id="wind5"></span><br> .<span id="humid5"></span>
+                                    </div>
+                                    <table class="preview5">
+                                        <tbody>
+                                            <tr>
+                                                <td><i class="fas fa-sun"></i></td>
+                                                <td id="sunrise5"></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="wi wi-day-sunny"></i></td>
+                                                <td id="sunset5"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="proverb5">
+                                Long : <span id="long5"></span>  Lat : <span id="lat5"></span><br/>
+                                <i class="fas fa-map-marked" id="maps5"></i> 
+                            </div>
+                        </div>
+                        <div id="condition5" style="font-size: 15px;text-align: center;"></div>
+                    </div>
+  
+  
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="footer" style="background-color: black;">
+
+        <div class="container2">
+
+            <div class="cta-form">
+                <h2 style="color: white;">Feel free to comment!</h2> 
+            <p style="color: white;">All of your comment and review really meaningfull for you</p>
+            </div>
+
+
+            <form class="form">
+
+            
+                
+                <input id="fileName" class="form__input"></input>
+                <label class="form__label" style="color: white;">name : </label>
+            
+                
+                <input id="fileContents" class="form__input"></input>
+                <label class="form__label" style="color: white;">Comment : </label>
+            
+
+            <button id="btnCreate" class="btn btn-default" style="margin-left: 85%;">Send</button>
+
+            </form>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+  window.onload = async function() {
+    const cities = ['apollo+bay', 'lapland', 'wales', 'irbid', 'gotenba'];
+    const countryCodeMap = {};
+    const countryMap = {};
+
+    try {
+      const countryDataResponse = await fetch(`https://restcountries.com/v3.1/all`);
+      const countryData = await countryDataResponse.json();
+
+      for (let country of countryData) {
+        countryCodeMap[country.cca2] = country.name.common;
+        countryMap[country.cca2] = country.maps.googleMaps;
+      }
+
+      for (let i = 0; i < cities.length; i++) {
+        const city = cities[i];
+        const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=9fd7a449d055dba26a982a3220f32aa2`);
+        const weatherData = await weatherResponse.json();
+
+        const countrycode = weatherData.sys.country;
+        const countryName = countryCodeMap[countrycode] || "Country not found";
+
+        document.getElementById(`city${i + 1}`).innerHTML = weatherData.name;
+        document.getElementById(`country${i + 1}`).innerHTML = countryName;
+        document.getElementById(`long${i + 1}`).innerHTML = weatherData.coord.lon;
+        document.getElementById(`lat${i + 1}`).innerHTML = weatherData.coord.lat;
+        document.getElementById(`desc${i + 1}`).innerHTML = weatherData.weather[0].description;
+        document.getElementById(`tempC${i + 1}`).innerHTML = parseInt(weatherData.main.temp - 273.15) + "°C";
+        document.getElementById(`tempMin${i + 1}`).innerHTML = parseInt(weatherData.main.temp_min - 273.15);
+        document.getElementById(`tempMax${i + 1}`).innerHTML = parseInt(weatherData.main.temp_max - 273.15);
+        document.getElementById(`humid${i + 1}`).innerHTML = weatherData.main.humidity + "%";
+        document.getElementById(`wind${i + 1}`).innerHTML = weatherData.wind.speed + " km/h";
+        document.getElementById(`sunrise${i + 1}`).innerHTML = new Date(weatherData.sys.sunrise * 1000).toLocaleTimeString();
+        document.getElementById(`sunset${i + 1}`).innerHTML = new Date(weatherData.sys.sunset * 1000).toLocaleTimeString();
+        let latHtml = `<a href="${countryMap[countrycode]}" style="text-decoration:none;color:white;font-family: 'overlock', Helvetica, sans-serif;"><strong>  View on maps</strong></a>`
+        document.getElementById(`maps${i+1}`).innerHTML = latHtml;
+                
+        if((weatherData.weather[0].main) !='Rain' && (weatherData.weather[0].main) != 'Snow'){ 
+            document.getElementById(`condition${i+1}`).innerHTML=`It is safe to do hiking activity at this place` 
+            document.getElementById(`condition${i+1}`).style.color='#99ff99' 
+        } 
+        else{ 
+            document.getElementById(`condition${i+1}`).innerHTML=`It is not safe to do hiking activity at this place` 
+            document.getElementById(`condition${i+1}`).style.color='#ff9999' 
+        }
+      }
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+
+  const { app, BrowserWindow } = require('electron');
+    const fs = require('fs');
+    const path = require('path');
+
+    var btnCreate = document.getElementById('btnCreate');
+    var btnDelete = document.getElementById('btnDelete');
+    var fileName = document.getElementById('fileName');
+    var fileContents = document.getElementById('fileContents');
+    var commentSection = document.getElementById('commentSection');
+
+    let pathName = path.join(__dirname, 'Files');
+
+    btnCreate.addEventListener('click', function() {
+      let file = path.join(pathName, fileName.value);
+      let contents = fileContents.value;
+      fs.writeFile(file, contents, function(err) {
+        if (err) {
+          return console.log(err);
+        }
+        var txtfile = document.getElementById('fileName').value;
+        alert(' Comment has been sent!');
+        console.log('The file was created');
+        displayAllComments();
+      });
+    });
+
+
+    
+</script>
+
+</html>

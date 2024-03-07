@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search page</title>
+    <link rel="stylesheet" href="stel.css">
+
+    <style>
+          /* Comment container */
+/* Comment container */
+.comment {
+    position: relative;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+  }
+  
+  /* Dropdown button */
+  .dropbtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    color: #333;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%;
+    right: 0;
+  }
+  
+  /* Show the dropdown content on hover */
+  .comment:hover .dropdown-content {
+    display: block;
+  }
+  
+  /* Add some padding to the dropdown content */
+  .dropdown-content button {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+  }
+  
+  /* Change color of dropdown links on hover */
+  .dropdown-content button:hover {
+    background-color: #f1f1f1;
+  }
+  
+  /* Comment footer */
+  .comment-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Comment date */
+  .comment-date {
+    font-size: 12px;
+    color: #777;
+  }
+  
+  
+    </style>
+
+   
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css">
+
+</head>
+<body>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+	<nav>
+        <div class="logo" style="display: flex;align-items: center;">
+          <div class="top" style="font-style: italic;font-variant: small-caps;font-weight: bold;margin-left: 1150px; display: flex; ">
+            <p><a href="index.html" style="width: 50%;text-decoration: none;color: white;padding: 14px 16px;">home</a></p>
+            <p><a href="wetherwidget.html" style="width: 50%;text-decoration: none;color: white;padding: 14px 16px;">weather</a></p>
+            <p><a href="comment.html" style="width: 50%;text-decoration: none;color: white;padding: 14px 16px;">review</a></p>
+          </div>
+        </div>
+        
+      
+      </nav>
+<br>
+<br>
+<br>
+<br>
+
+<div id="commentSection" class="discomm" style="  max-width: 38rem; margin-left: auto; margin-right: auto;"></div>
+
+<br>
+
+<div class="footer" style="background-color: black;margin-top:24%">
+
+    <div class="container2">
+
+        <div class="cta-form">
+            <h2 style="color: white;">Feel free to comment!</h2> 
+        <p style="color: white;">All of your comment and review really meaningfull for you</p>
+        </div>
+
+
+        <form class="form">
+
+        
+            
+            <input id="fileName" class="form__input"></input>
+            <label class="form__label" style="color: white;">name : </label>
+        
+            
+            <input id="fileContents" class="form__input"></input>
+            <label class="form__label" style="color: white;">Comment : </label>
+        
+
+        <button id="btnCreate" class="btn btn-default" style="margin-left: 85%;">Send</button>
+
+        </form>
+    </div>
+
+
+
+
+
+</div>
+
+
+</body>
+
+<script>
+
+const { app, BrowserWindow } = require('electron');
+    const fs = require('fs');
+    const path = require('path');
+
+    var btnCreate = document.getElementById('btnCreate');
+    var btnDelete = document.getElementById('btnDelete');
+    var fileName = document.getElementById('fileName');
+    var fileContents = document.getElementById('fileContents');
+    var commentSection = document.getElementById('commentSection');
+
+    let pathName = path.join(__dirname, 'Files');
+
+    window.onload = async function() {
+      displayAllComments();
+    };
+
+    function displayAllComments() {
+      fs.readdir(pathName, function(err, files) {
+        if (err) {
+          return console.log(err);
+        }
+        var commentsHTML = '';
+        files.forEach(function(file) {
+          let filePath = path.join(pathName, file);
+          let fileName = path.basename(filePath, '.txt'); // Strip the ".txt" extension
+          let fileContents = fs.readFileSync(filePath, 'utf8');
+          commentsHTML += `
+          <div class="comment" style="background-color: white;">
+                    <strong>${fileName}:</strong> ${fileContents}
+                    <div class="comment-footer">
+                    <div class="dropdown">
+                        <button class="dropbtn">&#9776;</button>
+                        <div class="dropdown-content">
+                        <button class="editBtn" data-file="${file}">Edit</button>
+                        <button class="deleteBtn" data-file="${file}">Delete</button>
+                        </div>
+                    </div>
+                    <small class="comment-date">${new Date().toLocaleString()}</small>
+                    </div>
+                </div>`;
+
+        });
+        commentSection.innerHTML = commentsHTML;
+
+        // Add event listeners for edit and delete buttons
+        document.querySelectorAll('.editBtn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            let file = this.getAttribute('data-file');
+            editComment(file);
+          });
+        });
+
+        document.querySelectorAll('.deleteBtn').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            let file = this.getAttribute('data-file');
+            deleteComment(file);
+          });
+        });
+      });
+    }
+
+    function editComment(file) {
+  let fileNameWithoutExtension = path.basename(file, '.txt');
+  fileName.value = fileNameWithoutExtension;
+  let filePath = path.join(pathName, file);
+  let fileContents = fs.readFileSync(filePath, 'utf8');
+  fileContents.value = fileContents;
+}
+
+
+    function deleteComment(file) {
+      let filePath = path.join(pathName, file);
+      fs.unlink(filePath, function(err) {
+        if (err) {
+          return console.log(err);
+        }
+        displayAllComments();
+        console.log('The file was deleted!');
+      });
+    }
+
+    btnCreate.addEventListener('click', function() {
+      let file = path.join(pathName, fileName.value);
+      let contents = fileContents.value;
+      fs.writeFile(file, contents, function(err) {
+        if (err) {
+          return console.log(err);
+        }
+        var txtfile = document.getElementById('fileName').value;
+        alert(' Comment has been sent!');
+        console.log('The file was created');
+        displayAllComments();
+      });
+    });
+  
+    
+
+  </script>
+</html>
+
+
+
+						  
